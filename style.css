@@ -1,0 +1,339 @@
+:root {
+    --bg-dark-purple: #341243;
+    --bg-mid-purple: #251340;
+    --bg-blue: #141b3d;
+    --plex-gold: #cc7b19;
+    --text-main: #ffffff;
+    --text-muted: #a3a3b5;
+    --card-width: 160px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark-purple) 0%, var(--bg-mid-purple) 40%, var(--bg-blue) 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/*Top navigbar with search and buttons*/
+.plex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: linear-gradient(to right,#141b3d,#321263,#63098a,#4700b1);
+    position: sticky;
+    z-index: 100;
+    top:0;
+}
+
+.nav-left, .nav-right, .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-center{
+    gap:30px;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-right: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 8px 15px;
+    width: 300px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    font-size: 0.95rem;
+}
+
+.mybtn{
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.mybtn:hover{
+    background-color: #faf3fc;
+    color: #1e1e24;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.nav-center a, .icon-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.sign-in-btn {
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* below navig bar one movie and grid */
+.hero-welcome {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 40px 0 40px;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-text-side {
+    max-width: 500px;
+    padding-top: 50px;
+    z-index: 10;
+}
+
+.hero-text-side h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text-side p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+}
+
+/* Creating that tilted collage effect from the screenshot */
+.hero-collage-side {
+    position: absolute;
+    right: -100px;
+    top: -50px;
+    width: 60%;
+    height: 150%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    transform: perspective(1000px) rotateY(-15deg) rotateZ(5deg);
+    opacity: 0.8;
+}
+
+.collage-poster {
+    width: 140px;
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.fade-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--bg-dark-purple) 0%, transparent 30%),
+                linear-gradient(180deg, transparent 70%, var(--bg-blue) 100%);
+    pointer-events: none;
+}
+
+/*category buttons*/
+.main-content {
+    padding: 0 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.category-pills {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.category-pills::-webkit-scrollbar { display: none; }
+
+.pill {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/*movies row*/
+.carousel-container{
+    position: relative;
+}
+
+
+
+.movie-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 30px;
+}
+
+.movie-carousel::-webkit-scrollbar { display: none; }
+
+.movie-card {
+    flex: 0 0 var(--card-width);
+    aspect-ratio: 2 / 3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+/*movie description*/
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #1e1e24;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-flex {
+    display: flex;
+    gap: 30px;
+}
+
+.modal-poster {
+    width: 250px;
+    aspect-ratio: 2/3;
+    background-size: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.modal-info h1 { margin-bottom: 15px; }
+.modal-info p { color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+
+.cast-grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.cast-member {
+    text-align: center;
+    min-width: 80px;
+}
+
+.cast-member img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.cast-member p {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin: 0;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: var(--card-width);
+    flex: 0 0 var(--card-width);   /* add this */
+}
+
+.movie-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* This adds '...' if the title is too long */
+}
+
+
