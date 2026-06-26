@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plex | Welcome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="plex-nav">
+        <div class="nav-left">
+            <div class="logo">plex</div>
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Find movies, tv shows, and more...">
+            </div>
+        </div>
+        <nav class="nav-center">
+            <!-- <a href="#">Live TV</a>
+            <a href="#">On Demand</a>
+            <a href="#">Discover</a> -->
+            <button class="mybtn">Live</button>
+            <button class="mybtn">On Demand</button>
+            <button class="mybtn">Discover</button>
+        </nav>
+        <div class="nav-right">
+            <a href="#" class="icon-link">☰ My Media</a>
+            <a href="#" class="icon-link">🔖 Watchlist</a>
+            <button class="sign-in-btn">Sign In</button>
+        </div>
+    </header>
+
+    <section class="hero-welcome">
+        <div class="hero-text-side">
+            <h1>Welcome to Plex!</h1>
+            <p>Explore our free movies and TV, plus discover what's trending across your favorite streaming services.</p>
+        </div>
+        
+        <div class="hero-collage-side" id="hero-collage">
+            <div class="fade-overlay"></div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="section-header">
+            <h2>Browse Movies & TV Shows <span>›</span></h2>
+            <p class="subtitle">On Demand</p>
+        </div>
+        
+        <div class="category-pills">
+            <button class="pill">Action</button>
+            <button class="pill">Animation</button>
+            <button class="pill">Comedy</button>
+            <button class="pill">Crime</button>
+            <button class="pill">Documentary</button>
+            <button class="pill">Drama</button>
+            <button class="pill">En Español</button>
+            <button class="pill">Horror</button>
+            <button class="pill">Music</button>
+            <button class="pill">Romance</button>
+            <button class="pill">Sci-Fi</button>
+            <button class="pill">Thriller</button>
+        </div>
+
+        <div class="carousel-container">
+            <div class="movie-carousel" id="movie-container">
+                </div>
+        </div>
+    </main>
+
+    <div id="detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">✕</button>
+            <div class="modal-flex">
+                <div id="modal-poster" class="modal-poster"></div>
+                <div class="modal-info">
+                    <h1 id="modal-title"></h1>
+                    <p id="modal-desc"></p>
+                    <h3>Cast</h3>
+                    <div id="modal-cast" class="cast-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
